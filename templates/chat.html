@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GradPath AI — Chat</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="chat-page">
+
+  <!-- Aurora background -->
+  <div class="aurora">
+    <div class="aurora-orb aurora-orb-1"></div>
+    <div class="aurora-orb aurora-orb-2"></div>
+    <div class="aurora-orb aurora-orb-3"></div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="chat-header">
+    <div class="header-left">
+      <div class="header-logo-box">🎓</div>
+      <div>
+        <div class="header-title">GradPath AI</div>
+        <div class="header-subtitle">AI Study &amp; Career Companion</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-badge">
+        <span class="dot"></span>
+        Hi, {{ user.name }}
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+        <span class="theme-icon" id="themeIcon">☀️</span>
+      </button>
+      <a href="/reset" class="btn-reset" title="Start over">↩ Reset</a>
+    </div>
+  </header>
+
+  <!-- ============ MODE SELECTOR BAR ============ -->
+  <div class="mode-bar">
+    <button class="mode-btn" id="studiesBtn" onclick="selectMode('studies')">
+      📚 Studies Mode
+    </button>
+    <button class="mode-btn" id="careerBtn" onclick="selectMode('career')">
+      💼 Career Mode
+    </button>
+  </div>
+
+  <!-- ============ CHAT WINDOW ============ -->
+  <div class="chat-window" id="chatWindow"></div>
+
+  <!-- ============ INPUT BAR ============ -->
+  <div class="input-bar">
+    <div class="input-wrap">
+      <input type="text" id="userInput" class="chat-input"
+        placeholder="Select a mode above to start chatting..." disabled />
+    </div>
+    <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    const USER = {
+      name: "{{ user.name }}",
+      subject: "{{ user.subject }}",
+      year: "{{ user.year }}"
+    };
+  </script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
